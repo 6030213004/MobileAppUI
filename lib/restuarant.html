@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Restuarant Menu</title>
+
+    <script src="onsen/js/onsenui.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="onsen/css/onsenui.css">
+    <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
+    <link rel="stylesheet" href="onsen/css/onsen-css-components.min.css">
+    <!-- <script src="onsen/js/onsenui.min.js"></script> -->
+</head>
+
+<body>
+
+    <ons-fab position="bottom right">
+        <ons-icon icon="md-plus"></ons-icon>
+    </ons-fab>
+
+
+    <div class="toolbar ">
+        <div class="toolbar__left ">
+            <span class="toolbar-button ">
+                <i class="zmdi zmdi-menu"></i>
+            </span>
+        </div>
+        <div class="toolbar__center">
+            <div class="segment" style="width:200px;margin:7px 7px;">
+                <div class="segment__item">
+                    <input type="radio" class="segment__input" name="navi-segment-a" checked>
+                    <div class="segment__button" >Restuarant</div>
+                </div>
+
+                <div class="segment__item">
+                    <input type="radio" class="segment__input" name="navi-segment-a">
+                    <div class="segment__button" >Category</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- --------------------------------------------------navbar--------------------------------------------------------------- -->
+
+    <template id="restuarant.html">
+        <ons-page id="restuarant">
+
+            <ons-toolbar>
+                <div class="left"></div>
+                <div class="center">Restuarant</div>
+                <div class="right"></div>
+
+            </ons-toolbar>
+
+
+            <ons-row>
+                <ons-card onclick="fn.pushPage({'id': 'menu.html', 'title': 'menu'})">
+                    <div><img src="img/gongcha.jpg" alt=""></div>
+                    <div class="title">Gong Cha</div>
+                    <div class="content">Category : Drinks .</div>
+                </ons-card>
+                <ons-card onclick="fn.pushPage({'id': 'menu.html', 'title': 'menu'})">
+                    <div><img src="img/mala.jpg" alt=""></div>
+                    <div class="title">Mala BBQ&Hotpot</div>
+                    <div class="content">Category : BBQ .</div>
+                </ons-card>
+                <ons-card onclick="fn.pushPage({'id': 'menu.html', 'title': 'menu'})">
+                    <div><img src="img/thai.jpg" alt=""></div>
+                    <div class="title">Hot Thai Kitchen</div>
+                    <div class="content">Category : Thai food .</div>
+                </ons-card>
+                <ons-card onclick="fn.pushPage({'id': 'menu.html', 'title': 'menu'})">
+                    <div><img src="img/pizza.jpg" alt=""></div>
+                    <div class="title">Die Pizza </div>
+                    <div class="content">Category : Italian .</div>
+                </ons-card>
+            </ons-row>
+    </template>
+
+</body>
+
+</html>
+
+
+
+<!-- -------------------------------------------------------------------------------- -->
