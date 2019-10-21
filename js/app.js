@@ -17,7 +17,7 @@ var db = firebase.firestore();
 
 
 // check login status
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
     //var displayName = user.displayName;
@@ -39,126 +39,95 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 document.addEventListener('init', function (event) {
   var page = event.target;
- 
+
 
 
   if (page.id === 'homePage') {
     console.log("homePage");
 
     $("#menubtn").click(function () {
-      $("#sidemenu")[0].open();      
+      $("#sidemenu")[0].open();
     });
 
     $("#backhome").click(function () {
-      $("#content")[0].load("home.html");      
+      $("#content")[0].load("home.html");
+    });
+
+    $("#tomyummer").click(function () {
+      console.log('tomyummer');
+      $("#content")[0].load("tomyummer.html");
     });
 
     $("#login").click(function () {
-      $("#content")[0].load("login.html");      
+      $("#content")[0].load("login.html");
     });
 
     $("#logout").click(function () {
-      $("#content")[0].load("login.html");      
+      $("#content")[0].load("login.html");
     });
 
     $("#profile").click(function () {
-      $("#content")[0].load("profile.html");      
+      $("#content")[0].load("profile.html");
     });
 
     $("#thai").click(function () {
-      $("#content")[0].load("thai.html");      
+      $("#content")[0].load("thai.html");
+    });
+  }
+
+  if (page.id === 'thaipage') {
+    console.log("Get in thai page");
+
+    $("#tomyummer").click(function () {
+      console.log('tomyummer');
+      $("#content")[0].load("tomyummer.html");
     });
 
-    db.collection("recommended").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-          
-        var item = `
+    $("#backtohome").click(function () {
+      console.log('back to home');
+      $("#content")[0].load("home.html");
+    });
+  }
+
+  if (page.id === 'tomyummer') {
+    console.log("Thai");
+
+    $("#backtothai").click(function () {
+      console.log('back to thai page');
+      $("#content")[0].load("thai.html");
+    });
+  }
+
+  if (page.id === 'loginpage') {
+    console.log("login");
+
+    $("#backhome").click(function () {
+      console.log('back to home');
+      $("#content")[0].load("home.html");
+    });
+  }
+
+  db.collection("recommended").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+
+      var item = `
         <ons-carousel-item modifier="nodivider" id="${doc.data().id}" class="recomended_item">
             <div class="thumbnail" style="background-image: url('${doc.data().photoUrl}')">
             </div>
             <div class="recomended_item_title" id="item1_name">${doc.data().name}</div>
         </ons-carousel-item>`
 
-        $("#carousel").append(item);
+      $("#carousel").append(item);
 
-
-      });
     });
 
-  }
+  });
+
+
 
 });
 
-// function onSuccess(googleUser) {
-//   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-// }
-// function onFailure(error) {
-//   console.log(error);
-// }
-// function renderButton() {
-//   gapi.signin2.render('my-signin2', {
-//     'scope': 'profile email',
-//     'width': 240,
-//     'height': 50,
-//     'longtitle': true,
-//     'theme': 'dark',
-//     'onsuccess': onSuccess,
-//     'onfailure': onFailure
-//   });
-// }
 
 
 
-// if (page.id === 'signuppage') {
-//   console.log("signup");
 
-//   $("#createbtn").click(function () {
-
-//     var email = document.getElementById('email').value;
-//     var password = document.getElementById('password').value;
-//     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-//       // Handle Errors here.
-//       var errorCode = error.code;
-//       var errorMessage = error.message;
-
-//       if (errorCode === 'auth/weak-password') {
-//         alert('The password is too weak');
-
-//       } else {
-//         alert(errorMessage);
-//         content.load('login.html');
-//       }
-//       console.log(error);
-
-//     });
-
-
-//   });
-
-  
-// }
-
-// else if (page.id === 'loginPage') {
-//   console.log("loginPage");
-
-//   $("#gbtn").click(function () {
-//     var provider = new firebase.auth.GoogleAuthProvider();
-//     firebase.auth().signInWithPopup(provider).then(function(result) {
-//       // This gives you a Google Access Token. You can use it to access the Google API.
-//       var token = result.credential.accessToken;
-//       // The signed-in user info.
-//       var user = result.user;
-//       content.load('home.html');
-//     }).catch(function(error) {
-//       // Handle Errors here.
-//       var errorCode = error.code;
-//       var errorMessage = error.message;
-//       // The email of the user's account used.
-//       var email = error.email;
-//       // The firebase.auth.AuthCredential type that was used.
-//       var credential = error.credential;
-//       // ...
-//     });
-//   });
-
-// }
