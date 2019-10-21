@@ -3,13 +3,13 @@
         <div class="left">
             <!-- Toolbar-button with different icons depending on the platform. -->
             <ons-toolbar-button id="menubtn">
-                <ons-icon icon="ion-navicon, material:md-menu" size="32px, material:24px"></ons-icon>
+                <ons-icon icon="md-menu"></ons-icon>
             </ons-toolbar-button>
         </div>
         <div class="center">FoodJobs</div>
-        <div class="right">
-            <ons-toolbar-button>
-                <ons-icon icon="fa-user-circle"></ons-icon>
+        <div class="right" id="profile">
+            <ons-toolbar-button id="profile">
+                <ons-icon icon="fa-user-circle" id="profile"></ons-icon>
             </ons-toolbar-button>
         </div>
     </ons-toolbar>
@@ -19,7 +19,7 @@
             <h4>Recomended</h4>
             <ons-carousel auto-scroll auto-scroll-ratio="0.5" auto-refresh swipeable overscrollable item-width="130px"
                 class="recomended_list" id="carousel">
-                <ons-carousel-item modifier="nodivider" id="item1" class="recomended_item" >
+                <ons-carousel-item modifier="nodivider" id="item1" class="recomended_item" style="">
                     <div class="thumbnail" 
                     style="background-image: url('https://firebasestorage.googleapis.com/v0/b/foodjobs-70e88.appspot.com/o/recommended%2Frecommended%2Fcake.jpg?alt=media&token=a72db361-a7e5-45cb-9e6e-ec5ab768c3fe'); background-size:150% ">
                     </div>
@@ -52,8 +52,8 @@
             <h4 style="margin-top: 0px">Food Category</h4>
             <ons-row class="category">
                 <ons-col modifier="nodivider">
-                    <div class="category_wrapper" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/foodjobs-70e88.appspot.com/o/recommended%2Fcategory%2Fthai.jpg?alt=media&token=89fb6870-ec7d-4324-aff0-0ddb54aac7d5');background-size:150%">
-                        <figure class="category_thumbnail">
+                    <div class="category_wrapper" id="thai" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/foodjobs-70e88.appspot.com/o/recommended%2Fcategory%2Fthai.jpg?alt=media&token=89fb6870-ec7d-4324-aff0-0ddb54aac7d5');background-size:150%">
+                        <figure class="category_thumbnail" id="thai">
                             <div class="category_title" id="Category_1_name">Thai</div>
                         </figure>
                     </div>
@@ -61,7 +61,7 @@
                 <ons-col modifier="nodivider">
                     <div class="category_wrapper" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/foodjobs-70e88.appspot.com/o/recommended%2Fcategory%2Fitalian.jpg?alt=media&token=0c7e0942-5b80-40f9-b24f-5ff598493df9');background-size:150%">
                         <figure class="category_thumbnail">
-                            <div class="category_title" id="Category_1_name">Italian</div>
+                            <div class="category_title" id="Category_1_name" onclick="fn.load('')">Italian</div>
                         </figure>
                     </div>
                 </ons-col>
@@ -70,14 +70,14 @@
                 <ons-col modifier="nodivider">
                     <div class="category_wrapper" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/foodjobs-70e88.appspot.com/o/recommended%2Fcategory%2Fchinese.jpg?alt=media&token=34f97bba-ea1f-4570-9874-d97fd46ec2de');background-size:150%">
                         <figure class="category_thumbnail">
-                            <div class="category_title" id="Category_1_name">Chiese</div>
+                            <div class="category_title" id="Category_1_name" onclick="fn.load('')">Chinese</div>
                         </figure>
                     </div>
                 </ons-col>
                 <ons-col modifier="nodivider">
                     <div class="category_wrapper" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/foodjobs-70e88.appspot.com/o/recommended%2Fcategory%2Ffastfood.jpg?alt=media&token=2442200a-3aff-4158-8a1d-3d277cd81746');background-size:150%">
                         <figure class="category_thumbnail">
-                            <div class="category_title" id="Category_1_name">Fast Food</div>
+                            <div class="category_title" id="Category_1_name" onclick="fn.load('')">Fast Food</div>
                         </figure>
                     </div>
                 </ons-col>
@@ -86,7 +86,7 @@
                 <ons-col modifier="nodivider">
                     <div class="category_wrapper" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/foodjobs-70e88.appspot.com/o/recommended%2Fcategory%2Fdesserts.jpg?alt=media&token=ca007ea1-8783-4196-89db-c019f6f6be2b');background-size:150%">
                         <figure class="category_thumbnail">
-                            <div class="category_title" id="Category_1_name">Deserts</div>
+                            <div class="category_title" id="Category_1_name" onclick="fn.load('')">Deserts</div>
                         </figure>
                     </div>
                 </ons-col>

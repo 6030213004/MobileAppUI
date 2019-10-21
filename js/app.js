@@ -49,6 +49,26 @@ document.addEventListener('init', function (event) {
       $("#sidemenu")[0].open();      
     });
 
+    $("#backhome").click(function () {
+      $("#content")[0].load("home.html");      
+    });
+
+    $("#login").click(function () {
+      $("#content")[0].load("login.html");      
+    });
+
+    $("#logout").click(function () {
+      $("#content")[0].load("login.html");      
+    });
+
+    $("#profile").click(function () {
+      $("#content")[0].load("profile.html");      
+    });
+
+    $("#thai").click(function () {
+      $("#content")[0].load("thai.html");      
+    });
+
     db.collection("recommended").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
           
@@ -69,27 +89,25 @@ document.addEventListener('init', function (event) {
 
 });
 
+// function onSuccess(googleUser) {
+//   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+// }
+// function onFailure(error) {
+//   console.log(error);
+// }
+// function renderButton() {
+//   gapi.signin2.render('my-signin2', {
+//     'scope': 'profile email',
+//     'width': 240,
+//     'height': 50,
+//     'longtitle': true,
+//     'theme': 'dark',
+//     'onsuccess': onSuccess,
+//     'onfailure': onFailure
+//   });
+// }
 
 
-
-
-// $("#googlelogin").click(function () {
-//   var email = $("#email").val();
-//   var password = $("#password").val();
-//   firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
-//     content.load('home.html');
-
-//   }
-//   )
-
-//     .catch(function (error) {
-     
-//       console.log(error.message);
-//     });
-
-
-
-// })
 
 // if (page.id === 'signuppage') {
 //   console.log("signup");

@@ -1,5 +1,5 @@
 .page--full_bg__background {
-    background: url('img/Foodjobs.png');
+    background: url('https://firebasestorage.googleapis.com/v0/b/foodjobs-70e88.appspot.com/o/Foodjobs.png?alt=media&token=b949f9f9-e27f-423c-a91d-c7cecd2e9600');
 }
 
 .recomended_item {
@@ -77,4 +77,9 @@
     padding-top: 20px;
 }
 
-#loginPage .page__background { background-color: rgb(0, 0, 0)}
+.content {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    
+}
