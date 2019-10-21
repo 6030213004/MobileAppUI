@@ -113,12 +113,46 @@ document.addEventListener('init', function (event) {
 
     $("#signinbtn").click(function () {
       console.log('Signed in');
-      $("#content")[0].load("home.html");
+      var email = $("#email").val();
+      var password = $("#password").val();
+      firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
+        content.load('home.html');
+
+      }
+      )
+
+        .catch(function (error) {
+
+          console.log(error.message);
+        });
+
+
+
     });
 
     $("#gosignup").click(function () {
       console.log('go to signup page');
       $("#content")[0].load("signup.html");
+    });
+
+    $("#customBtn").click(function () {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).then(function (result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        content.load('home.html');
+      }).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
     });
   }
 
@@ -127,9 +161,28 @@ document.addEventListener('init', function (event) {
 
 
     $("#signupbtn").click(function () {
-      console.log('Signed up');
-      $("#content")[0].load("home.html");
+
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
+        content.load('home.html');
+      })
+
+        .catch(function (error) {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+
+          if (errorCode === 'auth/weak-password') {
+            alert('The password is too weak');
+
+          } else {
+            alert(errorMessage);
+            content.load('login.html');
+          }
+
+        });
     });
+
   }
 
   if (page.id === 'confirmorder') {
@@ -326,8 +379,8 @@ function displayCart() {
         output += "<tr>" +
             "<td>" + cartArray[i].name + "</td>" +
             "<td>(" + cartArray[i].price + ")</td>" +
-            "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>" +
-            "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>" +
+            "<td><div class='input-group'><input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>" +
+            "<button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>" +
             "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>" +
             "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>" +
             " = " +
@@ -374,7 +427,23 @@ displayCart();
 
 });
 
+// ----------------------------------googlelogin----------------------------------------
 
-
-
+// function onSuccess(googleUser) {
+//   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+// }
+// function onFailure(error) {
+//   console.log(error);
+// }
+// function renderButton() {
+//   gapi.signin2.render('my-signin2', {
+//     'scope': 'profile email',
+//     'width': 240,
+//     'height': 50,
+//     'longtitle': true,
+//     'theme': 'dark',
+//     'onsuccess': onSuccess,
+//     'onfailure': onFailure
+//   });
+// }
 
