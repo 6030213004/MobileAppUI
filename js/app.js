@@ -49,7 +49,6 @@ document.addEventListener('init', function (event) {
       $("#sidemenu")[0].open();      
     });
 
-    $("#carousel").empty();
     db.collection("recommended").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
           
@@ -70,74 +69,78 @@ document.addEventListener('init', function (event) {
 
 });
 
-$("#googlelogin").click(function () {
-  var email = $("#email").val();
-  var password = $("#password").val();
-  firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
-    content.load('home.html');
 
-  }
-  )
 
-    .catch(function (error) {
+
+
+// $("#googlelogin").click(function () {
+//   var email = $("#email").val();
+//   var password = $("#password").val();
+//   firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
+//     content.load('home.html');
+
+//   }
+//   )
+
+//     .catch(function (error) {
      
-      console.log(error.message);
-    });
+//       console.log(error.message);
+//     });
 
 
 
-})
+// })
 
-if (page.id === 'signuppage') {
-  console.log("signup");
+// if (page.id === 'signuppage') {
+//   console.log("signup");
 
-  $("#createbtn").click(function () {
+//   $("#createbtn").click(function () {
 
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
+//     var email = document.getElementById('email').value;
+//     var password = document.getElementById('password').value;
+//     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+//       // Handle Errors here.
+//       var errorCode = error.code;
+//       var errorMessage = error.message;
 
-      if (errorCode === 'auth/weak-password') {
-        alert('The password is too weak');
+//       if (errorCode === 'auth/weak-password') {
+//         alert('The password is too weak');
 
-      } else {
-        alert(errorMessage);
-        content.load('login.html');
-      }
-      console.log(error);
+//       } else {
+//         alert(errorMessage);
+//         content.load('login.html');
+//       }
+//       console.log(error);
 
-    });
+//     });
 
 
-  });
+//   });
 
   
-}
+// }
 
-if (page.id === 'loginPage') {
-  console.log("loginPage");
+// else if (page.id === 'loginPage') {
+//   console.log("loginPage");
 
-  $("#gbtn").click(function () {
-    var provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      var token = result.credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      content.load('home.html');
-    }).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
-    });
-  });
+//   $("#gbtn").click(function () {
+//     var provider = new firebase.auth.GoogleAuthProvider();
+//     firebase.auth().signInWithPopup(provider).then(function(result) {
+//       // This gives you a Google Access Token. You can use it to access the Google API.
+//       var token = result.credential.accessToken;
+//       // The signed-in user info.
+//       var user = result.user;
+//       content.load('home.html');
+//     }).catch(function(error) {
+//       // Handle Errors here.
+//       var errorCode = error.code;
+//       var errorMessage = error.message;
+//       // The email of the user's account used.
+//       var email = error.email;
+//       // The firebase.auth.AuthCredential type that was used.
+//       var credential = error.credential;
+//       // ...
+//     });
+//   });
 
-}
+// }
