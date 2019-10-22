@@ -1,5 +1,5 @@
 <ons-page id="loginpage">
-
+    
     <ons-toolbar>
         <div class="left">
             <ons-back-button id="backhome">Back</ons-back-button>
@@ -8,11 +8,10 @@
         <div class="right"></div>
     </ons-toolbar>
 
-    <div style="text-align: center; margin-top: 30px;" 
+    <div style="text-align: center; background-color: black; height: 100%;" >
         <img src="https://firebasestorage.googleapis.com/v0/b/foodjobs-70e88.appspot.com/o/logo.png?alt=media&token=1dc5a499-d10e-45d0-94b6-9b8c5d2edcee"
             alt="Onsen UI" style="width: 60%">
-        <div class="title" style="text-align: center;">
-            <h3>Sign in</h3>
+        <div  style="text-align: center;">
         </div>
         <div class="content">
             <div style="text-align: center; margin-top: 30px;">
@@ -25,24 +24,28 @@
                     </ons-input>
                 </p>
                 <p style="margin-top: 50px;">
-                    <ons-button id="signinbtn">Sign in</ons-button>
-                    <ons-button id="gosignup">Sign Up</ons-button>
+                    <ons-button id="signinbtn">Sign in with email</ons-button>
+                    <ons-button id="gosignup">Sign up for new user </ons-button>
                 </p>
 
 
-                <p style="margin-top: 30px">
-                    <h3>Or sign in with</h3>
+                <p style="margin-top: 0px">
+                    <h3>OR</h3>
                     <ons-row>
                         <ons-col>
 
 
-                            <div id="gSignInWrapper">
+                            <div class="center">
+                                <img id="customBtn" src="https://firebasestorage.googleapis.com/v0/b/foodjobs-70e88.appspot.com/o/google.png?alt=media&token=f188017b-f8fd-437d-8572-a2c81331f3de" alt="">
+                            </div>
+
+                            <!-- <div id="gSignInWrapper">
                                 <div id="customBtn" class="customGPlusSignIn">
                                     <span class="icon"></span>
                                     <span class="buttonText">Google</span>
                                 </div>
                             </div>
-                            <div id="name"></div>
+                            <div id="name"></div> -->
                             <script>startApp();</script>
 
 
