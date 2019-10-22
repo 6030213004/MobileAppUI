@@ -133,4 +133,9 @@
      text-transform: uppercase;
  }
 
+ .item-count{
+    width: 50%;
+    height: 20px;
+ }
+
  
