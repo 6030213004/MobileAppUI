@@ -16,26 +16,6 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
 
-// check login status
-firebase.auth().onAuthStateChanged(function (user) {
-  if (user) {
-    // User is signed in.
-    //var displayName = user.displayName;
-    var email = user.email;
-    console.log(email + "signed in");
-    // var emailVerified = user.emailVerified;
-    // var photoURL = user.photoURL;
-    // var isAnonymous = user.isAnonymous;
-    // var uid = user.uid;
-    // var providerData = user.providerData;
-    // ...
-  } else {
-    console.log("sign out");
-    // User is signed out.
-    // ...
-  }
-});
-
 
 document.addEventListener('init', function (event) {
   var page = event.target;
@@ -43,7 +23,7 @@ document.addEventListener('init', function (event) {
 
 
   if (page.id === 'homePage') {
-    console.log("open homePage");
+    console.log("open home page");
 
     $("#menubtn").click(function () {
       $("#sidemenu")[0].open();
@@ -66,14 +46,30 @@ document.addEventListener('init', function (event) {
       $("#content")[0].load("login.html");
     });
 
-    $("#profile").click(function () {
-      $("#content")[0].load("profile.html");
-    });
-
     $("#thai").click(function () {
       $("#content")[0].load("thai.html");
     });
+
+    $("#italian").click(function () {
+      $("#content")[0].load("italian.html");
+    });
+
+    $("#chinese").click(function () {
+      $("#content")[0].load("chinese.html");
+    });
+
+    $("#fastfood").click(function () {
+      $("#content")[0].load("fastfood.html");
+    });
+
+    $("#dessert").click(function () {
+      $("#content")[0].load("dessert.html");
+    });
+    
   }
+
+    // ------------------------------------------categories--------------------------------------------
+
 
   if (page.id === 'thaipage') {
     console.log("Get in thai page");
@@ -89,6 +85,67 @@ document.addEventListener('init', function (event) {
     });
   }
 
+  if (page.id === 'italianpage') {
+    console.log("Get in italian page");
+
+    $("#unable").click(function () {
+      console.log('not available');
+      $("#content")[0].load("home.html");
+    });
+
+    $("#backtohome").click(function () {
+      console.log('back to home');
+      $("#content")[0].load("home.html");
+    });
+  }
+
+  if (page.id === 'chinesepage') {
+    console.log("Get in chinese page");
+
+    $("#unable").click(function () {
+      console.log('not available');
+      $("#content")[0].load("home.html");
+    });
+
+    $("#backtohome").click(function () {
+      console.log('back to home');
+      $("#content")[0].load("home.html");
+    });
+  }
+
+  if (page.id === 'fastfoodpage') {
+    console.log("Get in fast food page");
+
+    $("#unable").click(function () {
+      console.log('not available');
+      $("#content")[0].load("home.html");
+    });
+
+    $("#backtohome").click(function () {
+      console.log('back to home');
+      $("#content")[0].load("home.html");
+    });
+  }
+
+  if (page.id === 'dessertpage') {
+    console.log("Get in dessert page");
+
+    $("#unable").click(function () {
+      console.log('not available');
+      $("#content")[0].load("home.html");
+    });
+
+    $("#backtohome").click(function () {
+      console.log('back to home');
+      $("#content")[0].load("home.html");
+    });
+  }
+
+
+
+
+  // ------------------------------------------restaurants--------------------------------------------
+
   if (page.id === 'tomyummer') {
     console.log("Thai");
 
@@ -102,6 +159,10 @@ document.addEventListener('init', function (event) {
       $("#content")[0].load("confirmorder.html");
     });
   }
+
+
+
+  
 
   if (page.id === 'loginpage') {
     console.log("login page");
@@ -193,13 +254,52 @@ document.addEventListener('init', function (event) {
       $("#content")[0].load("home.html");
     });
 
-    $("#payment").click(function () {
+    $("#gopay").click(function () {
       console.log('go to payment page');
-      $("#content")[0].load("bill.html");
+      $("#content")[0].load("payment.html");
     });
 
 
   }
+
+  if (page.id === 'paymentpage') {
+    console.log("payment page");
+
+    $("#backtoconfirm").click(function () {
+      console.log('back to confirm page');
+      $("#content")[0].load("confirmorder.html");
+    });
+
+    $("#cod").click(function () {
+      console.log('cash on delivery');
+      $("#content")[0].load("status.html");
+    });
+
+
+  }
+
+  if (page.id === 'profile') {
+    console.log("profile page");
+
+    $("#back").click(function () {
+      console.log('back to home page');
+      $("#content")[0].load("home.html");
+    });
+
+
+  }
+
+  if (page.id === 'statuspage') {
+    console.log("status page");
+
+    $("#finish").click(function () {
+      console.log('back to home page');
+      $("#content")[0].load("home.html");
+    });
+
+
+  }
+
 
   db.collection("recommended").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
@@ -338,17 +438,7 @@ document.addEventListener('init', function (event) {
         return cartCopy;
     }
 
-    // cart : Array
-    // Item : Object/Class
-    // addItemToCart : Function
-    // removeItemFromCart : Function
-    // removeItemFromCartAll : Function
-    // clearCart : Function
-    // countCart : Function
-    // totalCart : Function
-    // listCart : Function
-    // saveCart : Function
-    // loadCart : Function
+
     return obj;
 })();
 
@@ -427,23 +517,5 @@ displayCart();
 
 });
 
-// ----------------------------------googlelogin----------------------------------------
-
-// function onSuccess(googleUser) {
-//   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-// }
-// function onFailure(error) {
-//   console.log(error);
-// }
-// function renderButton() {
-//   gapi.signin2.render('my-signin2', {
-//     'scope': 'profile email',
-//     'width': 240,
-//     'height': 50,
-//     'longtitle': true,
-//     'theme': 'dark',
-//     'onsuccess': onSuccess,
-//     'onfailure': onFailure
-//   });
-// }
+// --------------------------------------------------------------------------
 

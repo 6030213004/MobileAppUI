@@ -7,29 +7,21 @@
         <div class="right"></div>
     </ons-toolbar>
 
-    <div class="container">
-            <!-- Nav-->
-            <nav class="navbar navbar-inverse bg-inverse fixed-top bg-faded">
-                <div class="row">
-                    <div class="col">
-                        <ons-button style="background-color:blue" data-toggle="modal" data-target="#cart" id="confirmorder">Cart (<span class="total-count"></span>)</ons-button>
-                        <ons-button style="background-color:rgb(255, 0, 0)" class="clear-cart btn btn-danger">Clear Cart</ons-button>
-                    </div>
-                </div>
-            </nav>
-    </div>
 
     <ons-list-header>Tomyum</ons-list-header>
     <ons-card>
         <!-- <img src="https://firebasestorage.googleapis.com/v0/b/foodjobs-70e88.appspot.com/o/recommended%2Frecommended%2Ftomyum.jpg?alt=media&token=5bb3fd47-be84-4338-aa54-8f924d71eb2d" alt="Onsen UI" style="width: 100%"> -->
         <div class="title">
-            Seafood Tomyum  
+            Seafood Tomyum
         </div>
         <div class="content">
             <div class="card__content">150 Baht </div>
-            
+
         </div>
-        <div class="right"><ons-button><a data-name="SeafoodTomyum" data-price="150" class="add-to-cart btn-primary" onclick="addtocart()">Add to cart</a></ons-button></div>
+        <div class="right">
+            <ons-button><a data-name="SeafoodTomyum" data-price="150" class="add-to-cart btn-primary"
+                    onclick="addtocart()">Add to cart</a></ons-button>
+        </div>
 
     </ons-card>
 
@@ -41,7 +33,10 @@
         <div class="content">
             <div class="card__content">120 Baht </div>
         </div>
-        <div class="right"><ons-button><a data-name="ChickenTomyum" data-price="120" class="add-to-cart btn-primary" onclick="addtocart()">Add to cart</a></ons-button></div>
+        <div class="right">
+            <ons-button><a data-name="ChickenTomyum" data-price="120" class="add-to-cart btn-primary"
+                    onclick="addtocart()">Add to cart</a></ons-button>
+        </div>
     </ons-card>
 
     <ons-card>
@@ -52,7 +47,10 @@
         <div class="content">
             <div class="card__content">130 Baht </div>
         </div>
-        <div class="right"><ons-button><a data-name="FishTomyum" data-price="130" class="add-to-cart btn-primary" onclick="addtocart()">Add to cart</a></ons-button></div>
+        <div class="right">
+            <ons-button><a data-name="FishTomyum" data-price="130" class="add-to-cart btn-primary"
+                    onclick="addtocart()">Add to cart</a></ons-button>
+        </div>
     </ons-card>
 
     <ons-list-header>Appetizer</ons-list-header>
@@ -64,7 +62,10 @@
         <div class="content">
             <div class="card__content">100 Baht </div>
         </div>
-        <div class="right"><ons-button><a data-name="FriedChicken" data-price="100" class="add-to-cart btn-primary" onclick="addtocart()">Add to cart</a></ons-button></div>
+        <div class="right">
+            <ons-button><a data-name="FriedChicken" data-price="100" class="add-to-cart btn-primary"
+                    onclick="addtocart()">Add to cart</a></ons-button>
+        </div>
     </ons-card>
 
     <ons-card>
@@ -75,19 +76,38 @@
         <div class="content">
             <div class="card__content">100 Baht </div>
         </div>
-        <div class="right"><ons-button><a data-name="RoastedChicken" data-price="100" class="add-to-cart btn-primary" onclick="addtocart()">Add to cart</a></ons-button></div>
+        <div class="right">
+            <ons-button><a data-name="RoastedChicken" data-price="100" class="add-to-cart btn-primary"
+                    onclick="addtocart()">Add to cart</a></ons-button>
+        </div>
     </ons-card>
 
     <ons-card>
         <!-- <img src="https://firebasestorage.googleapis.com/v0/b/foodjobs-70e88.appspot.com/o/recommended%2Frecommended%2Ftomyum.jpg?alt=media&token=5bb3fd47-be84-4338-aa54-8f924d71eb2d" alt="Onsen UI" style="width: 100%"> -->
         <div class="title">
-            Rice
+            Rice   
         </div>
         <div class="content">
             <div class="card__content">50 Baht </div>
         </div>
-        <div class="right"><ons-button><a data-name="Rice" data-price="50" class="add-to-cart btn-primary" onclick="addtocart()">Add to cart</a></ons-button></div>
+        <div class="right">
+            <ons-button><a data-name="Rice" data-price="50" class="add-to-cart btn-primary" onclick="addtocart()">Add to cart</a></ons-button>
+        </div>
     </ons-card>
 
+
+    <div class="container">
+        <!-- Nav-->
+        <nav class="navbar navbar-inverse bg-inverse fixed-top bg-faded">
+            <div class="row">
+                <center>
+                    <div class="col">
+                        <ons-button style="background-color:blue" data-toggle="modal" data-target="#cart" id="confirmorder">Cart (<span class="total-count"></span>)</ons-button>
+                        <ons-button style="background-color:rgb(255, 0, 0)" class="clear-cart btn btn-danger">Clear Cart</ons-button>
+                    </div>
+                </center>
+            </div>
+        </nav>
     </div>
+    <!-- </div> -->
 </ons-page>

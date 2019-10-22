@@ -9,36 +9,50 @@
   <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
   <link rel="stylesheet" href="foodjobs.css">
   <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
- <!-- ------------------------------------------------------------------------------------------------------- -->
+
+  <!-- CODELAB: Add link rel manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <script>
+    // CODELAB: Register service worker.
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((reg) => {
+            console.log('Service worker registered.', reg);
+          });
+      });
+    }
+  </script>
+  <!-- ------------------------------------------------------------------------------------------------------- -->
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
   <script src="https://apis.google.com/js/api:client.js"></script>
   <script>
-  var googleUser = {};
-  var startApp = function() {
-    gapi.load('auth2', function(){
-      // Retrieve the singleton for the GoogleAuth library and set up the client.
-      auth2 = gapi.auth2.init({
-        client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
-        cookiepolicy: 'single_host_origin',
-        // Request scopes in addition to 'profile' and 'email'
-        //scope: 'additional_scope'
+    var googleUser = {};
+    var startApp = function () {
+      gapi.load('auth2', function () {
+        // Retrieve the singleton for the GoogleAuth library and set up the client.
+        auth2 = gapi.auth2.init({
+          client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
+          cookiepolicy: 'single_host_origin',
+          // Request scopes in addition to 'profile' and 'email'
+          //scope: 'additional_scope'
+        });
+        attachSignin(document.getElementById('customBtn'));
       });
-      attachSignin(document.getElementById('customBtn'));
-    });
-  };
+    };
 
-  function attachSignin(element) {
-    console.log(element.id);
-    auth2.attachClickHandler(element, {},
-        function(googleUser) {
+    function attachSignin(element) {
+      console.log(element.id);
+      auth2.attachClickHandler(element, {},
+        function (googleUser) {
           document.getElementById('name').innerText = "Signed in: " +
-              googleUser.getBasicProfile().getName();
-        }, function(error) {
+            googleUser.getBasicProfile().getName();
+        }, function (error) {
           alert(JSON.stringify(error, undefined, 2));
         });
-  }
+    }
   </script>
-  <style type="text/css">
+  <!-- <style type="text/css">
     #customBtn {
       display: inline-block;
       background: white;
@@ -49,13 +63,16 @@
       box-shadow: 1px 1px 1px grey;
       white-space: nowrap;
     }
+
     #customBtn:hover {
       cursor: pointer;
     }
+
     span.label {
       font-family: serif;
       font-weight: normal;
     }
+
     span.icon {
       background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
       display: inline-block;
@@ -63,6 +80,7 @@
       width: 42px;
       height: 42px;
     }
+
     span.buttonText {
       display: inline-block;
       vertical-align: middle;
@@ -73,7 +91,7 @@
       /* Use the Roboto font that is loaded in the <head> */
       font-family: 'Roboto', sans-serif;
     }
-  </style>
+  </style> -->
 
 
 </head>

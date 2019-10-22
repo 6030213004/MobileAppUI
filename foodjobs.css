@@ -121,3 +121,16 @@
     /* Use the Roboto font that is loaded in the <head> */
     font-family: 'Roboto', sans-serif;
   }
+
+  /* ------------------------------------------------------------------------------- */
+
+  .black {
+    background-color: black;
+ }
+
+ h4{
+     color: black;
+     text-transform: uppercase;
+ }
+
+ 
