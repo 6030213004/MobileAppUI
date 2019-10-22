@@ -256,7 +256,7 @@ document.addEventListener('init', function (event) {
 
     $("#confirmbtn").click(function () {
       console.log('confirmed');
-      $("#content")[0].load("successfull.html");
+      $("#content")[0].load("successful.html");
     });
 
 
@@ -274,6 +274,18 @@ document.addEventListener('init', function (event) {
 
 
   }
+
+  if (page.id === 'successfulpage') {
+    console.log("succesful page");
+
+    $("#finish").click(function () {
+      console.log('the food is coming');
+      $("#content")[0].load("home.html");
+    });
+
+
+  }
+
 
 
 
